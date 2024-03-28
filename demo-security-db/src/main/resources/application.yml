@@ -1,0 +1,21 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+
+
+spring:
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/security?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  #缓存配置
+  cache:
+    ehcache:
+      config: classpath:config/ehcache.xml
+
+
+mybatis:
+  #Mybaytis配置Mapper.xml文件
+  mapper-locations: classpath:**/*Mapper.xml

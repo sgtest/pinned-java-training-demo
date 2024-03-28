@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stytem.demo.mapper.impl.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.stytem.demo.bean.User">
+            <result column="id" property="id" jdbcType="INTEGER" />
+            <result column="username" property="username" jdbcType="VARCHAR" />
+            <result column="password" property="password" jdbcType="VARCHAR" />
+            <result column="enabled" property="enabled" jdbcType="BOOLEAN" />
+            <result column="locked" property="locked" jdbcType="BOOLEAN" />
+    </resultMap>
+    <select id="loadUserByUsername" resultMap="BaseResultMap">
+        select * from User where username=#{username}
+    </select>
+
+    <select id="selectRolesById" resultType="com.stytem.demo.bean.Role">
+        select * from Role where id in(select rid from user_role where uid=#{id})
+    </select>
+
+    <select id="getAllUsers" resultMap="BaseResultMap">
+        select * from user;
+    </select>
+</mapper>
