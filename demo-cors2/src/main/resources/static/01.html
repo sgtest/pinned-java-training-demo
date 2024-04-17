@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+</head>
+<body>
+<h1>01-cors1</h1>
+<button onclick="hello1()">get</button>
+<script>
+    function hello1(){
+       $.get("http://localhost:8081/hello1",function(data){
+            alert(  data );
+        });
+    }
+</script>
+</body>
+</html>

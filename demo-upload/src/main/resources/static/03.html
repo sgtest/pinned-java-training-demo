@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+</head>
+<body>
+   <div id="resultMsg"></div>
+  <input type="file" id="files">
+  <input type="submit" onclick="upload()">
+
+   <script>
+    function upload() {
+        var formData = new FormData();
+        formData.append('file', $('#files')[0].files[0]);
+            $.ajax({
+            url:  "/upload03",
+            type: 'post',
+            cache: false,
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(result) {
+                if(result){
+                    $('#resultMsg').html(result);
+                }
+		    }
+	    });
+    }
+
+   </script>
+</body>
+</html>
