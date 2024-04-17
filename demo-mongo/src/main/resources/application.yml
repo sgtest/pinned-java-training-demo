@@ -1,0 +1,17 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root1:root1@192.168.254.130:27017/mytest
+ #     port: 27017
+ #     host: 192.168.254.130
+ #     authenticationDatabase: admin
+ #     database: mytest
+ #     username: root
+ #     password: root
+
+
+
